@@ -29,6 +29,7 @@ typedef struct {
 //functions
 void card_print(const Card* card);
 
-Card* deck_generate(void);
+Card* deck_init(void);
+void deck_destroy(Card* deck);
 
 #endif //PINOCHLE_H

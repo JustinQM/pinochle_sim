@@ -41,12 +41,12 @@ void card_print(const Card* card)
 
 //Generates a deck (Card Array) by allocating memory.
 //Returns NULL if there is an error
-Card* deck_generate(void)
+Card* deck_init(void)
 {
     Card* deck = malloc(sizeof(Card) * TOTAL_CARDS);
     if(deck == NULL)
     {
-        fprintf(stderr, "Could not allocate the deck into memory!\n");
+        fprintf(stderr, "Deck Generate: Could not allocate the deck into memory!\n");
         return NULL;
     }
 
@@ -62,4 +62,18 @@ Card* deck_generate(void)
     }
 
     return deck;
+}
+
+//destorys a deck. Assumes a full deck
+void deck_destroy(Card* deck)
+{
+    if(deck == NULL)
+    {
+        fprintf(stderr, "Deck Destroy: Can not free a NULL pointer\n");
+        return;
+    }
+
+    free(deck);
+
+    return;
 }
